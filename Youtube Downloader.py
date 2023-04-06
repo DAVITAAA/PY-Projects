@@ -27,19 +27,15 @@ def downloader():
             url = YouTube(str(link.get()),on_progress_callback=on_progress)
         if res_menu.get() == "1080P":
             video = url.streams.get_highest_resolution()
-            #video.download('C:\\Users\\Administrator\\Desktop\\tuxa')
             finish_label.configure(Text="Downloaded")
         elif res_menu.get() == "720P":
             video = url.streams.filter(res="720p").first()
-            #video.download('C:\\Users\\Administrator\\Desktop\\tuxa')
             finish_label.configure(Text="Downloaded")
         elif res_menu.get() == "MP3":
             video = url.streams.get_audio_only()
-            #video.download('C:\\Users\\Administrator\\Desktop\\tuxa')
             finish_label.configure(Text="Downloaded")
         elif res_menu.get() == "480P":
             video = url.streams.get_by_resolution("480P")
-            #video.download('C:\\Users\\Administrator\\Desktop\\tuxa')
             finish_label.configure(Text="Downloaded")
         else:
             print("Invalid resolution selected")
